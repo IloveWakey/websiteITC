@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alwhaynette Flowershop | Flower Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="banner">FLOWERS • BOUQUETS • DELIVERY • STORE PICK-UP</div>
+    <header>
+        <a class="logo" href="index.html">ALWHAYNETTE FLOWERSHOP</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a class="active" href="gallery.html">Gallery</a>
+            <a href="bouquets.html">Bouquets</a>
+            <a href="inquiry.html">Inquire Here!</a>
+            <a href="location.html">Location</a>
+        </nav>
+    </header>
+
+    <main class="section page-section">
+        <p class="small-title">OUR AVAILABLE FLOWERS</p>
+        <h1 class="page-title">Flower Gallery</h1>
+        <p class="section-text">Browse the flowers and use the filters to find options within your budget, preferred style, or occasion. Prices are estimates per stem or bundle.</p>
+
+        <div class="filter-box">
+            <div class="filter-heading">
+                <h3>Find Flowers</h3>
+                <button type="button" class="clear-button" onclick="clearFlowerFilters()">Clear filters</button>
+            </div>
+            <div class="filter-grid">
+                <div class="filter-field flower-filter-field">
+                    <label for="flowerFilterToggle">Flower type</label>
+                    <div class="filter-dropdown">
+                        <button type="button" id="flowerFilterToggle" class="filter-dropdown-toggle" aria-expanded="false" aria-controls="flowerFilterMenu">
+                            <span id="flowerFilterSummary">All flowers</span><span class="dropdown-arrow">⌄</span>
+                        </button>
+                        <div class="filter-dropdown-menu" id="flowerFilterMenu" hidden>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="phalaenopsis"> Orchids</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="local-mums"> Chrysanthemums</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="anthuriums"> Anthuriums</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="heliconia"> Heliconias</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="roses"> Roses</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="tulips"> Tulips</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="sunflowers"> Sunflowers</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="lilies"> Lilies</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="carnations"> Carnations</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="daisies"> Daisies</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="aster"> Asters</label>
+                            <label><input type="checkbox" class="flower-filter-checkbox" value="statice"> Fillers and Foliage</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-field">
+                    <label for="minBudget">Minimum budget (₱)</label>
+                    <input id="minBudget" type="number" min="0" step="1" placeholder="0">
+                </div>
+                <div class="filter-field">
+                    <label for="maxBudget">Maximum budget (₱)</label>
+                    <input id="maxBudget" type="number" min="0" step="1" placeholder="No limit">
+                </div>
+                <div class="filter-field">
+                    <label for="occasionFilter">Purpose / occasion</label>
+                    <select id="occasionFilter">
+                        <option value="all">All occasions</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="romantic">Romantic / Anniversary</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="sympathy">Funeral / Sympathy</option>
+                        <option value="events">Events</option>
+                        <option value="everyday">Everyday / Gift</option>
+                        <option value="holiday">Holiday</option>
+                    </select>
+                </div>
+                <div class="filter-field">
+                    <label for="styleFilter">Flower style</label>
+                    <select id="styleFilter">
+                        <option value="all">All styles</option>
+                        <option value="romantic">Romantic</option>
+                        <option value="elegant">Elegant</option>
+                        <option value="tropical">Tropical</option>
+                        <option value="cheerful">Bright and cheerful</option>
+                        <option value="classic">Classic</option>
+                        <option value="natural">Soft and natural</option>
+                    </select>
+                </div>
+            </div>
+            <p class="filter-help">Choose one or more flower types from the dropdown. Budget filtering compares the listed price per stem or bundle.</p>Budget filtering compares the listed price range of each stem or bundle, not the full bouquet price.</p>
+            <p id="filterCount" class="filter-count" aria-live="polite">Showing all flowers</p>
+        </div>
+
+        <div class="flower-grid gallery-grid" id="galleryGrid">
+            <article class="flower-card" data-name="phalaenopsis orchids" data-min="80" data-max="150" data-occasions="wedding events everyday" data-styles="elegant" data-key="phalaenopsis" data-gallery-title="Orchids" data-gallery-images="images/FLOWER DETAILS/orchids-1.jpg">
+                <img src="images/GALLERY EXAMPLES/orkids.jpeg" alt="Phalaenopsis orchids">
+                <div class="flower-card-info"><h3>Orchids</h3><p class="price">₱80 – ₱150 / stem</p><p class="flower-tags"><span>Wedding</span><span>Elegant</span><span>Events</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('phalaenopsis')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="chrysanthemums local mums" data-min="40" data-max="75" data-occasions="sympathy events everyday" data-styles="classic" data-key="local-mums" data-gallery-title="Chrysanthemums" data-gallery-images="images/FLOWER DETAILS/chrysanthemums-1.jpg">
+                <img src="images/GALLERY EXAMPLES/chris.jpeg" alt="Chrysanthemums">
+                <div class="flower-card-info"><h3>Chrysanthemums</h3><p class="price">₱40 – ₱75 / stem</p><p class="flower-tags"><span>Sympathy</span><span>Classic</span><span>Events</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('local-mums')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="anthuriums" data-min="60" data-max="120" data-occasions="events wedding everyday" data-styles="tropical" data-key="anthuriums" data-gallery-title="Anthuriums" data-gallery-images="images/FLOWER DETAILS/anthuriums-1.jpg">
+                <img src="images/GALLERY EXAMPLES/anthony.jpg" alt="Anthuriums">
+                <div class="flower-card-info"><h3>Anthuriums</h3><p class="price">₱60 – ₱120 / stem</p><p class="flower-tags"><span>Events</span><span>Tropical</span><span>Wedding</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('anthuriums')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="heliconias" data-min="70" data-max="130" data-occasions="events holiday everyday" data-styles="tropical" data-key="heliconia" data-gallery-title="Heliconias" data-gallery-images="images/FLOWER DETAILS/heliconias-1.jpg">
+                <img src="images/GALLERY EXAMPLES/watdaheli.jpg" alt="Heliconias">
+                <div class="flower-card-info"><h3>Heliconias</h3><p class="price">₱70 – ₱130 / stem</p><p class="flower-tags"><span>Events</span><span>Tropical</span><span>Holiday</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('heliconia')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="roses" data-min="50" data-max="250" data-occasions="romantic birthday wedding everyday" data-styles="romantic" data-key="roses" data-gallery-title="Roses" data-gallery-images="images/FLOWER DETAILS/roses-1.jpg">
+                <img src="images/GALLERY EXAMPLES/ruses.jpg" alt="Roses">
+                <div class="flower-card-info"><h3>Roses</h3><p class="price">₱50 – ₱250 / stem</p><p class="flower-tags"><span>Romantic</span><span>Birthday</span><span>Wedding</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('roses')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="tulips" data-min="180" data-max="280" data-occasions="romantic birthday wedding" data-styles="romantic elegant" data-key="tulips" data-gallery-title="Tulips" data-gallery-images="images/FLOWER DETAILS/tulips-1.jpg">
+                <img src="images/GALLERY EXAMPLES/hihi.jpg" alt="Tulips">
+                <div class="flower-card-info"><h3>Tulips</h3><p class="price">₱180 – ₱280 / stem</p><p class="flower-tags"><span>Romantic</span><span>Birthday</span><span>Elegant</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('tulips')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="sunflowers" data-min="120" data-max="200" data-occasions="birthday everyday events" data-styles="cheerful" data-key="sunflowers" data-gallery-title="Sunflowers" data-gallery-images="images/FLOWER DETAILS/sunflowers-1.jpg">
+                <img src="images/GALLERY EXAMPLES/sonion.jpg" alt="Sunflowers">
+                <div class="flower-card-info"><h3>Sunflowers</h3><p class="price">₱120 – ₱200 / stem</p><p class="flower-tags"><span>Birthday</span><span>Cheerful</span><span>Everyday</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('sunflowers')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="lilies" data-min="150" data-max="300" data-occasions="sympathy wedding events" data-styles="elegant" data-key="lilies" data-gallery-title="Lilies" data-gallery-images="images/FLOWER DETAILS/lilies-1.jpg">
+                <img src="images/GALLERY EXAMPLES/lilya.jpeg" alt="Lilies">
+                <div class="flower-card-info"><h3>Lilies</h3><p class="price">₱150 – ₱300 / stem</p><p class="flower-tags"><span>Sympathy</span><span>Wedding</span><span>Elegant</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('lilies')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="carnations" data-min="45" data-max="80" data-occasions="birthday wedding everyday" data-styles="classic" data-key="carnations" data-gallery-title="Carnations" data-gallery-images="images/FLOWER DETAILS/carnations-1.jpg">
+                <img src="images/GALLERY EXAMPLES/car.webp" alt="Carnations">
+                <div class="flower-card-info"><h3>Carnations</h3><p class="price">₱45 – ₱80 / stem</p><p class="flower-tags"><span>Birthday</span><span>Wedding</span><span>Classic</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('carnations')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="daisies" data-min="35" data-max="65" data-occasions="birthday everyday events" data-styles="cheerful" data-key="daisies" data-gallery-title="Daisies" data-gallery-images="images/FLOWER DETAILS/daisies-1.jpg">
+                <img src="images/GALLERY EXAMPLES/daysi.jpg" alt="Daisies">
+                <div class="flower-card-info"><h3>Daisies</h3><p class="price">₱35 – ₱65 / stem</p><p class="flower-tags"><span>Birthday</span><span>Everyday</span><span>Cheerful</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('daisies')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="asters aster" data-min="50" data-max="100" data-occasions="birthday events wedding" data-styles="natural" data-key="aster" data-gallery-title="Asters" data-gallery-images="images/FLOWER DETAILS/asters-1.jpg">
+                <img src="images/GALLERY EXAMPLES/aster.jpeg" alt="Asters">
+                <div class="flower-card-info"><h3>Asters</h3><p class="price">₱50 – ₱100 / bundle</p><p class="flower-tags"><span>Birthday</span><span>Events</span><span>Natural</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('aster')">Add to Inquiry</button></div>
+            </article>
+            <article class="flower-card" data-name="fillers foliage statice" data-min="50" data-max="150" data-occasions="wedding events everyday" data-styles="natural" data-key="statice" data-gallery-title="Fillers and Foliage" data-gallery-images="images/FLOWER DETAILS/fillers-1.jpg">
+                <img src="images/GALLERY EXAMPLES/foli.webp" alt="Fillers and foliage">
+                <div class="flower-card-info"><h3>Fillers and Foliage</h3><p class="price">₱50 – ₱150 / bundle</p><p class="flower-tags"><span>Wedding</span><span>Events</span><span>Natural</span></p><button class="view-photos-button" type="button" data-open-gallery>View More Photos</button><button class="sample-button" type="button" onclick="selectFlower('statice')">Add to Inquiry</button></div>
+            </article>
+        </div>
+        <p id="noFlowers" class="empty-state" hidden>No flowers match your filters. Try changing your budget or selections.</p>
+
+        <div class="image-gallery-modal" id="imageGalleryModal" aria-hidden="true" hidden>
+            <div class="image-gallery-backdrop" data-close-gallery></div>
+            <section class="image-gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="imageGalleryTitle">
+                <button type="button" class="image-gallery-close" data-close-gallery aria-label="Close photo gallery">×</button>
+                <p class="small-title">PHOTO GALLERY</p>
+                <h2 id="imageGalleryTitle">Flower Photos</h2>
+                <p class="image-gallery-note">More photos of this flower.</p>
+                <div class="image-gallery-grid" id="imageGalleryGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Alwhaynette Flowershop</p>
+        <div class="footer-details">
+            <span>1427 Dos Castillas St., Sta. Cruz, Manila, Philippines, 2001</span>
+            <a href="tel:+639163110438">09163110438</a>
+            <a href="https://www.facebook.com/alwhaynetteflowers0224" target="_blank" rel="noopener noreferrer">Facebook Page</a>
+        </div>
+    </footer>
+</body>
+</html>
